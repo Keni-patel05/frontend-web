@@ -98,7 +98,7 @@ const ProductList = () => {
                             <div>
                                 {item.image &&
                                     <img
-                                        src={`http://localhost:5000/uploads/${item.image}`}
+                                        src={`${process.env.REACT_APP_API_URL}/uploads/${item.image}`}
                                         alt="product"
                                         width="50"
                                         height="50"
