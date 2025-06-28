@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
-    const user = JSON.parse(localStorage.getItem("user")); // 👈 Get user data
+    const user = JSON.parse(localStorage.getItem("user")); 
 
     useEffect(() => {
         getProducts();
@@ -11,7 +11,7 @@ const ProductList = () => {
 
     const getProducts = async () => {
         const token = JSON.parse(localStorage.getItem("token"));
-        let result = await fetch("http://localhost:5000/products", {
+        let result = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -24,7 +24,7 @@ const ProductList = () => {
         const token = JSON.parse(localStorage.getItem("token"));
         const prefix = "bearer";
 
-        let result = await fetch(`http://localhost:5000/product/${id}`, {
+        let result = await fetch(`${process.env.REACT_APP_API_URL}/product/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `${prefix} ${token}`
@@ -43,7 +43,7 @@ const ProductList = () => {
         const prefix = "bearer";
 
         if (key) {
-            let result = await fetch(`http://localhost:5000/search/${key}`, {
+            let result = await fetch(`${process.env.REACT_APP_API_URL}/search/${key}`, {
                 headers: {
                     authorization: `${prefix} ${token}`
                 }

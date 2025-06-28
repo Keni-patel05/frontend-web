@@ -11,6 +11,9 @@ const Login = () => {
         if (auth) {
             navigate("/");
         }
+
+        // Log API URL
+        console.log("API URL:", process.env.REACT_APP_API_URL);
     }, [navigate]);
 
     const handleLogin = async () => {
@@ -19,7 +22,7 @@ const Login = () => {
             return;
         }
 
-        let result = await fetch("http://localhost:5000/login", {
+        let result = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
             method: "POST",
             body: JSON.stringify({ email: email.trim(), password: password.trim() }),
             headers: {

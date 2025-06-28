@@ -32,7 +32,7 @@ const AddProduct = () => {
         formData.append("image", image);
 
         try {
-            const response = await fetch("http://localhost:5000/add-product", {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/add-product`, {
                 method: "POST",
                 body: formData,
                 headers: {

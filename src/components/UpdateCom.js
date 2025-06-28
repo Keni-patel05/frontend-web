@@ -17,9 +17,9 @@ const UpdateProduct = () => {
     console.warn(params);
 
     const token = JSON.parse(localStorage.getItem("token"));
-    const prefix = "bearer"; // or "Bearer", "Token", etc.
+    const prefix = "bearer"; 
 
-    let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/product/${params.id}`, {
         headers: {
             authorization: `${prefix} ${token}`
         }
@@ -36,14 +36,14 @@ const UpdateProduct = () => {
     console.warn(product, price, category, company);
 
     const token = JSON.parse(localStorage.getItem("token"));
-    const prefix = "bearer"; // or "Bearer", "Token", etc.
+    const prefix = "bearer"; 
 
-    let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/product/${params.id}`, {
         method: 'PUT',  
         body: JSON.stringify({ product, price, category, company }),
         headers: {
             'Content-Type': 'application/json',
-            authorization: `${prefix} ${token}` // ✅ added
+            authorization: `${prefix} ${token}` 
         },
     });
 
