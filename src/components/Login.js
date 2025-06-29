@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");  // Add error state
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -12,7 +13,6 @@ const Login = () => {
             navigate("/");
         }
 
-        // Log API URL
         console.log("API URL:", process.env.REACT_APP_API_URL);
     }, [navigate]);
 
@@ -26,25 +26,25 @@ const Login = () => {
             method: "POST",
             body: JSON.stringify({ email: email.trim(), password: password.trim() }),
             headers: {
-                "Content-Type": "application/json"
-            }
+                "Content-Type": "application/json",
+            },
         });
 
         result = await result.json();
-        console.log("Login response:", result);
 
         if (result.auth) {
             localStorage.setItem("user", JSON.stringify(result.user));
             localStorage.setItem("token", JSON.stringify(result.auth));
             navigate("/");
         } else {
-            alert("Please enter correct details");
+            setError("Invalid email or password");
         }
     };
 
     return (
         <div className="login">
             <h1>Login</h1>
+            {error && <p className="invalid">{error}</p>} {/* Show error if any */}
             <input
                 type="text"
                 className="inputbox"
@@ -65,5 +65,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;

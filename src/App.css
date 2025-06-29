@@ -1,225 +1,299 @@
+/* Navigation Bar */
 .nav-ul {
-    padding: 5px;
-    margin: 0px;
-    background-color: skyblue;
+    padding: 12px;
+    margin: 0;
+    background-color: #333333;  /* Charcoal Gray Background */
 }
 
-.nav-ul li{
-  display: inline-block;
-  padding: 10px;
+.nav-ul li {
+    display: inline-block;
+    padding: 12px;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .nav-ul li a {
-    color: #fff;
+    color: #F5F5F5; /* Soft Beige for Text */
     text-decoration: none;
     padding: 5px;
 }
 
+/* Footer */
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: skyblue;
-  text-align: center;
-  padding: 6px;
-  font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #2C3E50;  /* Deep Navy Blue */
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
 }
 
 .footer h3 {
-  margin-top: 13px;
+    margin-top: 13px;
+    color: #F5F5F5;  /* Soft Beige Text */
 }
 
 body {
-  padding-bottom: 50px; /* same or more than footer height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5; /* Soft Beige Background */
+    color: #333333;  /* Charcoal Gray Text */
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* App Header */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #333333;  /* Charcoal Gray */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #F5F5F5;  /* Soft Beige Text */
 }
 
 .App-link {
-  color: #61dafb;
+    color: #708090;  /* Muted Gold for Links */
 }
 
-.register{
-  margin-left: 30%;
-  margin-top: 100px;
+/* Login and Register Forms */
+.register, .login {
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 650px;
+    background-color: #FFFFFF;  /* White Background for Forms */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);  /* Soft Shadow for a Floating Effect */
+    box-sizing: border-box;
+    margin-top: 70px;
 }
 
-.product{
-  margin-left: 30%;
-}
-
-.login{
-  margin-left: 30%;
-  margin-top: 100px;
-}
-
+/* Input Fields */
 .inputbox {
-    padding: 7px;
+    padding: 14px;
     display: block;
-    border: 1px solid skyblue;
-    width: 300px;
-    margin: 20px;
+    border: 1px solid #708090;  /* Muted Gold Border */
+    width: 95%;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #F5F5F5;  /* Soft Beige Background */
+    color: #333333;  /* Charcoal Gray Text */
 }
 
-.appButton{
-    margin: 20px;
-    width: 150px;
-    padding: 10px;
-    background-color: skyblue;
-    border: 1px solid;
-    cursor: pointer;
+/* Button Styling */
+.appButton {
+    margin: 15px 0;
+    width: 100%;
+    padding: 14px;
+    background-color: #708090;  /* Muted Gold */
+    border: 1px solid #708090;
+    cursor: default;  /* Removed pointer cursor */
+    font-size: 16px;
+    display: block;
+    border-radius: 8px;
+    color: white;
 }
 
+/* REMOVE: Button Hover Effect */
+.appButton:hover {
+    background-color: #708090;  /* Keep the same color on hover */
+    border-color: #708090;
+}
+
+/* Tablet and Laptop Styles */
+@media (max-width: 1024px) {
+    .register, .login {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .inputbox, .appButton {
+        width: 100%;
+    }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .register, .login {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 120px;  /* Increased top margin for mobile */
+    }
+
+    .inputbox, .appButton {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* Very Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .inputbox {
+        padding: 12px;
+        width: 92%;  /* Slightly reduced width */
+    }
+
+    .appButton {
+        font-size: 18px;  /* Larger font size for smaller screens */
+    }
+}
+
+/* Navigation and Logo */
 .nav-right {
-text-align: right;
+    text-align: right;
+    font-size: 17px;
 }
 
-.logo{
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  float: left;
-  margin-top: 3px;
-  margin-left: 10px;
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
 }
 
-.invalid{
-  display: block;
-  color: red;
-  margin-top: -20px;
-  margin-left: 20px;
-  font-size: 14px;
-  font-weight: 450;
+/* Validation Error Messages */
+.invalid {
+    display: block;
+    color: red;
+    margin-top: -20px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 450;
 }
 
+/* Product List */
 .product-list {
-  padding: 40px;
-  text-align: center;
-  background-color: #f9fbfd;
+    padding: 40px;
+    text-align: center;
+    background-color: #F5F5F5;  /* Soft Beige */
+    margin-bottom: 50px; /* Ensure no overlap with footer */
 }
 
 .product-list h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .product-list .search {
-  padding: 10px;
-  width: 240px;
-  margin-bottom: 25px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    padding: 12px;
+    width: 240px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    border: 1px solid #708090;  /* Muted Gold Border */
+    border-radius: 5px;
 }
 
 /* Table Layout */
 .product-table {
-  margin: 0 auto;
-  max-width: 1000px;
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow-x: auto;
 }
 
+/* Table Rows */
 .product-row {
     display: flex;
-  text-align: center;
-  border: 1px solid skyblue;
-  border-top: none;
-  min-height: 60px;
-  align-items: center;
+    text-align: center;
+    border: 1px solid #708090; /* Gold Border */
+    border-top: none;
+    min-height: 60px;
+    align-items: center;
+    background-color: #FFFFFF; /* White Background for Rows */
 }
 
+/* Header Row */
 .product-row.header {
-  font-weight: bold;
-  background-color: #e6f7ff;
-  border-top: 1px solid skyblue;
+    font-weight: bold;
+    background-color: #708090;  /* Muted Gold for Header Row */
+    color: #FFF; /* White text */
+    border-top: 1px solid #708090;
 }
 
+/* Last Row */
 .product-row:last-of-type {
-  border-bottom: 1px solid skyblue;
+    border-bottom: 1px solid #708090; /* Gold Border */
 }
 
+/* Individual Table Cells */
 .product-row div {
-  flex: 1;
-  padding: 12px 8px;
-  border-right: 1px solid skyblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  min-height: 140px;
+    flex: 1;
+    padding: 12px 8px;
+    border-right: 1px solid #708090; /* Gold Border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    min-height: 140px;
+}
+
+/* REMOVE: Hover Effect for Table Rows */
+.product-row:hover {
+    background-color: #FFFFFF; /* Keep the same background color on hover */
 }
 
 /* Product Image */
 .product-row img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  border-radius: 10px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 /* Buttons and Links */
 .product-row button {
-  padding: 6px 10px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  margin-right: 8px;
-  cursor: pointer;
-  font-size: 14px;
+    padding: 6px 10px;
+    background-color: #708090; /* Light Gold */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: default;  /* Removed pointer cursor */
+    font-size: 14px;
 }
 
+/* REMOVE: Button Hover Effect for Product Row */
 .product-row button:hover {
-  background-color: #e64545;
+    background-color: #708090;  /* Keep the same color on hover */
+    border-color: #708090;
 }
 
 .product-row a {
-  color: purple;
-  text-decoration: underline;
-  font-size: 15px;
+    color: #708090; /* Muted Gold Links */
+    text-decoration: underline;
+    font-size: 15px;
 }
 
 .product-list h1 {
-  font-size: 18px;
-  color: #999;
-  margin-top: 30px;
+    font-size: 18px;
+    color: #999;
+    margin-top: 30px;
 }
 
+/* Search Box */
 .search-box {
-  width: 400px;
-  margin: 20px;
-  height: 38px;
-  padding: 30px;
-  border: 1px solid skyblue;
+    width: 400px;
+    margin: 20px;
+    height: 38px;
+    padding: 10px;
+    border: 1px solid #708090;  /* Muted Gold Border */
+    border-radius: 8px;
 }
 
+/* Keyframes for Spinning Logo */
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

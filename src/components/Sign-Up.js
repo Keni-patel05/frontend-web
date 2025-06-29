@@ -5,18 +5,24 @@ const SignUp = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");  // Add error state
     const navigate = useNavigate();
 
     useEffect(() => {
         const auth = localStorage.getItem("user");
         if (auth) {
             navigate("/");
-        }  
-    }, []);
+        }
+    }, [navigate]);
 
     const collectData = async () => {
+        if (!name || !email || !password) {
+            setError("All fields are required");
+            return;
+        }
+
         let result = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
-            method: "post",
+            method: "POST",
             body: JSON.stringify({ name, email, password }),
             headers: {
                 "Content-Type": "application/json",
@@ -24,16 +30,20 @@ const SignUp = () => {
         });
 
         result = await result.json();
-        console.warn(result);
-        localStorage.setItem("user", JSON.stringify(result.user));
-        localStorage.setItem("token", JSON.stringify(result.auth));
 
-        navigate("/");
+        if (result.error) {
+            setError(result.error);  // Show error if API response has error
+        } else {
+            localStorage.setItem("user", JSON.stringify(result.user));
+            localStorage.setItem("token", JSON.stringify(result.auth));
+            navigate("/");
+        }
     };
 
     return (
         <div className="register">
             <h1>Register</h1>
+            {error && <p className="invalid">{error}</p>} {/* Show error if any */}
             <input
                 className="inputbox"
                 type="text"
@@ -61,5 +71,6 @@ const SignUp = () => {
         </div>
     );
 };
+
 
 export default SignUp;
