@@ -39,12 +39,15 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #F5F5F5; /* Soft Beige Background */
-    color: #333333;  /* Charcoal Gray Text */
+  margin: 0;
+  padding: 0 0 80px 0;  /* bottom padding for footer */
+  font-family: 'Roboto', sans-serif;
+  background-color: #F5F5F5;
+  color: #333333;
+  box-sizing: border-box;
 }
+
+
 
 /* App Header */
 .App-header {
@@ -62,8 +65,8 @@ body {
     color: #708090;  /* Muted Gold for Links */
 }
 
-/* Login and Register Forms */
-.register, .login {
+/* Login, Register, Update & Add Product Forms */
+.register, .login, .product {
     margin: 0 auto;
     padding: 30px;
     max-width: 650px;
@@ -71,6 +74,51 @@ body {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);  /* Soft Shadow for a Floating Effect */
     box-sizing: border-box;
     margin-top: 70px;
+    border-radius: 10px;
+}
+
+/* Add Product Page */
+.add-product {
+  padding: 30px;
+  max-width: 650px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto;
+
+  /* Center fix */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: calc(100vh - 150px); /* nav + footer + spacing */
+}
+
+/* Update Product Page */
+.update-product {
+  padding: 30px;
+  max-width: 650px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto;
+
+  /* Center fix */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: calc(100vh - 150px); /* nav + footer + spacing */
+}
+/* Form Headings */
+.register h1, .login h1, .product h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #333333;
+    font-weight: bold;
 }
 
 /* Input Fields */
@@ -79,36 +127,45 @@ body {
     display: block;
     border: 1px solid #708090;  /* Muted Gold Border */
     width: 95%;
-    margin: 15px 0;
+    margin: 15px auto;
     border-radius: 8px;
     font-size: 16px;
     background-color: #F5F5F5;  /* Soft Beige Background */
     color: #333333;  /* Charcoal Gray Text */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputbox:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
 }
 
 /* Button Styling */
 .appButton {
-    margin: 15px 0;
+    margin: 15px auto;
     width: 100%;
     padding: 14px;
     background-color: #708090;  /* Muted Gold */
     border: 1px solid #708090;
-    cursor: default;  /* Removed pointer cursor */
+    cursor: pointer;  /* Make clickable */
     font-size: 16px;
     display: block;
     border-radius: 8px;
     color: white;
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-/* REMOVE: Button Hover Effect */
+/* Button Hover */
 .appButton:hover {
-    background-color: #708090;  /* Keep the same color on hover */
-    border-color: #708090;
+    background-color: #606b7a;
+    border-color: #606b7a;
+    transform: translateY(-2px);
 }
 
 /* Tablet and Laptop Styles */
 @media (max-width: 1024px) {
-    .register, .login {
+    .register, .login, .product {
         margin-left: 15%;
         margin-right: 15%;
     }
@@ -120,7 +177,7 @@ body {
 
 /* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
-    .register, .login {
+    .register, .login, .product {
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 120px;  /* Increased top margin for mobile */
@@ -235,11 +292,6 @@ body {
     min-height: 140px;
 }
 
-/* REMOVE: Hover Effect for Table Rows */
-.product-row:hover {
-    background-color: #FFFFFF; /* Keep the same background color on hover */
-}
-
 /* Product Image */
 .product-row img {
     width: 120px;
@@ -256,14 +308,13 @@ body {
     border: none;
     border-radius: 4px;
     margin-right: 8px;
-    cursor: default;  /* Removed pointer cursor */
+    cursor: pointer;  /* clickable */
     font-size: 14px;
+    transition: background 0.3s ease;
 }
 
-/* REMOVE: Button Hover Effect for Product Row */
 .product-row button:hover {
-    background-color: #708090;  /* Keep the same color on hover */
-    border-color: #708090;
+    background-color: #606b7a;
 }
 
 .product-row a {
@@ -296,4 +347,17 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+.product-box {
+  padding: 30px;
+  max-width: 650px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 40px auto;   /* spacing so they don’t overlap */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
